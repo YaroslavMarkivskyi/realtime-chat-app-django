@@ -6,3 +6,8 @@ from .models import ChatRoom
 def index(request):
     chatrooms = ChatRoom.objects.all()
     return render(request, 'chatapp/index.html', {"chatrooms": chatrooms})
+
+
+def chatroom(request, slug):
+    chartoom = ChatRoom.objects.get(slug=slug)
+    return render(request, 'chatapp/room.html', {'chartoom': chartoom})
